@@ -22,4 +22,5 @@ if you are not sure of the input type or you are sure but some times log creator
 ### parse:
 message_format can be none similar to the explanation on parse section of tcp_input.
 
-
+## exclude_filter
+this filter is used for dropping certain records based on a value in a key
