@@ -44,3 +44,21 @@
  ###remove key1 and key2 from record
  remove_keys key1,key2 
 </filter>
+
+
+### add hostname based on a filed in log with the ip address
+<filter project.**>
+  @type record_modifier
+  enable_ruby
+  <record>
+    temp ${record['REMOTE_ADDR']}
+  </record>
+</filter>
+<filter project.**>
+ @type record_modifier
+ enable_ruby
+ <record>
+   hostname "${Resolv.getname(record['temp'])}"
+ </record>
+ remove_keys temp
+</filter>
